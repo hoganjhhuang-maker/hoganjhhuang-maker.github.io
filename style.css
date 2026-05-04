@@ -179,14 +179,21 @@ nav ul li a.active {
 }
 
 .profile-photo {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
+    width: 220px;          /* 增大尺寸，更具存在感 */
+    height: auto;          /* 保持比例 */
+    aspect-ratio: 1 / 1;   /* 强制正方形，如果你原图不是正方形 */
+    border-radius: 32px;   /* Apple 风格的大圆角，不再是圆形[cite: 4] */
     object-fit: cover;
     flex-shrink: 0;
-    box-shadow: var(--shadow-lg);
-    border: 3px solid rgba(255, 255, 255, 0.9);
-    transition: var(--transition);
+    
+    /* 细腻的多层阴影，营造悬浮感 */
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.08), 
+        0 4px 12px rgba(0, 0, 0, 0.04);
+    
+    border: 1px solid rgba(255, 255, 255, 0.4); /* 极其微弱的边缘高光 */
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                box-shadow 0.4s ease;
 }
 
 .profile-photo:hover {
